@@ -41,7 +41,7 @@ except:
 #funciones 
 
 class OperacionL():
-    def limpiar(nombre, edad, area, horas_diarias, pago_por_hora, dias_trabajados):
+    def limpiar(self, nombre, edad, area, horas_diarias, pago_por_hora, dias_trabajados):
         nombre.set("")
         edad.set("")
         area.set("")
@@ -52,7 +52,7 @@ class OperacionL():
 # Alta
 class Operaciones():
     
-    def alta(nombre, edad, area, horas_diarias, pago_por_hora, dias_trabajados, sueldo_men, planilla):
+    def alta(self, nombre, edad, area, horas_diarias, pago_por_hora, dias_trabajados, sueldo_men, planilla):
         regx = nombre.get()
         patron = "^[A-Za-záéíóú]*$" 
         if(re.match(patron, regx)):
@@ -67,13 +67,13 @@ class Operaciones():
                 print("Todo se encuentra correcto")
                 ActualizarTreeview(planilla)
                 messagebox.showinfo("Exito", "Empleado agregado.")
-                OperacionL.limpiar(nombre, edad, area, horas_diarias, pago_por_hora, dias_trabajados)
+                OperacionL.limpiar(self, nombre, edad, area, horas_diarias, pago_por_hora, dias_trabajados)
             else:
                 messagebox.showerror("Error", "Horas diarias, pago por hora, y dias trabajados deben ser valores enteros.")
                 
 # Baja
 
-    def baja(planilla):
+    def baja(self, planilla):
         valor = planilla.selection()
         print(valor)
         item = planilla.item(valor)
@@ -93,7 +93,7 @@ class Operaciones():
 
 #modificar
 
-    def modificar(nombre, edad, area, horas_diarias, pago_por_hora, dias_trabajados, sueldo_men, planilla):
+    def modificar(self, nombre, edad, area, horas_diarias, pago_por_hora, dias_trabajados, sueldo_men, planilla):
         valor = planilla.selection()
         print(valor)
         item = planilla.item(valor)
